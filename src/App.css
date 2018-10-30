@@ -1,0 +1,28 @@
+#map {
+  height: 100vh;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#pano {
+        width: 200px;
+        height: 200px;
+}
+h1{
+  text-align: center;
+}
+.gridContainer{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.listSideBar{
+  display: grid;
+  grid-template-rows: 0.05fr 1fr;
+  padding: 5%;
+}
+input{
+  text-align: center;
+}
