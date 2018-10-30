@@ -33,3 +33,7 @@ A new browser window open automatically displaying the app.  If it doesn't, navi
 1. Build the production ready optimised code. `npm run build`
 2. Deploy it to `gh-pages` branch by `npm run deploy`
 3. Check the online demo [here]
+
+##References
+1. Google Maps https://developers.google.com/maps/documentation/
+2. Youtube tutorial https://www.youtube.com/watch?v=ywdxLNjhBYw&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
