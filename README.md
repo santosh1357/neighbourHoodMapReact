@@ -35,5 +35,5 @@ A new browser window open automatically displaying the app.  If it doesn't, navi
 3. Check the online demo [here]
 
 ##References
-1. Google Maps https://developers.google.com/maps/documentation/
-2. Youtube tutorial https://www.youtube.com/watch?v=ywdxLNjhBYw&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
+1. [Google Maps] (https://developers.google.com/maps/documentation/)
+2. [Youtube tutorial] (https://www.youtube.com/watch?v=ywdxLNjhBYw&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1)
