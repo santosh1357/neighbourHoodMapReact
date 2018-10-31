@@ -11,6 +11,7 @@ class App extends Component {
      venues: [],
      query: '',
      markers: [],
+     mapLoad: true
    } 
 
    componentDidMount(){
@@ -18,7 +19,10 @@ class App extends Component {
    }
 
    renderMap = () => {
-    loadGoogleMapAPIAsync("https://maps.googleapis.com/maps/api/js?key=<API_KEY>&callback=initMap")
+    var mapLoadStatus = loadGoogleMapAPIAsync("https://maps.googleapis.com/maps/api/js?key=AIzaSyCmqUn32zlQU4mjmm17Ktd1qQQNUwXuavo&callback=initMap")
+    if(mapLoadStatus === false){
+      this.setState({mapLoad: false})
+    }
     window.initMap = this.initMap;
    } 
 
@@ -148,31 +152,39 @@ class App extends Component {
     // {JSON.stringify(this.state)} loging query value on page to be used inside return
     showingVenues.sort(sortBy('name'));
      var venueList = showingVenues.map( (item, index) => 
-      <li key={index} onClick={e => this.showInfoWindow(e, item, index)}>{item.venue.name}</li>
+      <li key={index} tabindex="0" onClick={e => this.showInfoWindow(e, item, index)}>{item.venue.name}</li>
     );
  
     return ( 
       <div className="wrapper">
         <h1>Art and Museums in New Delhi</h1>
-        <main>
-          <div className="gridContainer">
-            <div className="listSideBar">
-              <input 
-                    className='search-venues'
-                    type='text'
-                    placeholder='Search venues'
-                    value={query}
-                    onChange={ (event) => this.updateQuery(event.target.value) }
-              />
-              <ul id="venue-list">
-                {venueList}
-              </ul>
-            </div>
-            <div className="mapCenter">  
-              <div id="map"></div>
+        {this.state.mapLoad && (
+            <main>
+            <div className="gridContainer" role="application" tabIndex="-1">
+              <div className="listSideBar" role="application" tabIndex="-1">
+                <input 
+                      className='search-venues'
+                      tabIndex="0"
+                      type='text'
+                      placeholder='Search venues'
+                      value={query}
+                      onChange={ (event) => this.updateQuery(event.target.value) }
+                />
+                <ul tabIndex="-1" id="venue-list">
+                  {venueList}
+                </ul>
+              </div>
+              <div tabIndex="-1" className="mapCenter">  
+                <div role="application" id="map"></div>
+              </div>  
             </div>  
-          </div>  
-        </main>
+          </main>
+        )}
+        {!this.state.mapLoad && (
+          <div>
+            <h1>loading map's api was unsuccessful. please try again later</h1>
+          </div>
+        )}
       </div>  
     );
   }
@@ -187,10 +199,15 @@ class App extends Component {
 function loadGoogleMapAPIAsync(url){
   var index = window.document.getElementsByTagName('script')[0]
   var script = window.document.createElement('script')
+  var loadStatus=true
   script.src=url
   script.async=true
   script.defer=true
   index.parentNode.insertBefore(script, index)
+  return script.onerror= function(){
+     loadStatus=false;
+     return loadStatus;
+  };
 }    
 export default App;
 
