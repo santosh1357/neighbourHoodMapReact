@@ -152,7 +152,7 @@ class App extends Component {
     // {JSON.stringify(this.state)} loging query value on page to be used inside return
     showingVenues.sort(sortBy('name'));
      var venueList = showingVenues.map( (item, index) => 
-      <li key={index} tabindex="0" onClick={e => this.showInfoWindow(e, item, index)}>{item.venue.name}</li>
+      <li key={index} tabIndex="0" onClick={e => this.showInfoWindow(e, item, index)}>{item.venue.name}</li>
     );
  
     return ( 
