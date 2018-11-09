@@ -7,6 +7,7 @@ This application follow this [Udacity Project Rubric](https://review.udacity.com
 
 ## How to run the project online
 Open the online here
+https://delhiartcenters.netlify.com/
 
 ## Features
 
