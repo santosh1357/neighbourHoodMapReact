@@ -14,15 +14,15 @@ html, body {
 h1{
   text-align: center;
 }
-.gridContainer{
+/*.gridContainer{
   display: grid;
   grid-template-columns: 1fr 3fr;
-}
-.listSideBar{
+}*/
+/*.listSideBar{
   display: grid;
   grid-template-rows: 0.05fr 1fr;
   padding: 5%;
-}
+}*/
 input{
   text-align: center;
 }
